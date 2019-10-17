@@ -193,7 +193,7 @@ while True:
     x,y=randomgenerator()
     playercard=Player_hand(x)
     dealercard=Dealers_hand(y)
-    print("\n",playercard,"\n",dealercard)
+    print("\n","Your cards are: ",*x,"\n",dealercard)
     
     if y[0]==10 or y[0]=="A":
         n=BlackJack(dealercard.dealers_card)
