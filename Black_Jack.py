@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Oct  9 13:43:24 2019
-
-@author: Noel
-"""
 import random
 class record():
     def __init__(self,bet,balance):
@@ -15,10 +9,7 @@ class record():
         self.balance=self.balance+self.bet+no
     def __betplaced__(self):
        self.balance=self.balance-self.bet
-   
     
-
-         
 class Player_hand():
     def __init__(self,player_card):
         self.player_card=player_card
@@ -26,7 +17,6 @@ class Player_hand():
         return f"Your Cards are: {self.player_card}"
     def __hit__(self,no):
         self.player_card.append(no)
-        
         
 class Dealers_hand():
     def __init__(self,dealers_card):
@@ -38,15 +28,13 @@ class Dealers_hand():
             return f"Dealers Face card: {self.dealers_card}"
     def __hit__(self,no):
         self.dealers_card.append(no)
-    
-        
+           
 def randomgenerator():
     letter=[2,3,4,5,6,7,8,9,10,"K","Q","J","A"]
     x=random.choices(letter,k=2)
     y=random.choices(letter,k=2)
     return x,y
-        
-
+       
 def Calculate(x,y):
     d=0
     c=0
@@ -56,14 +44,11 @@ def Calculate(x,y):
     x=[10 if x[i] in ["K","J","Q"] else x[i] for i in range(len(x))]
     y=[10 if y[i] in ["K","J","Q"] else y[i] for i in range(len(y))]
     
-    z=[1 if x[i]=="A" else x[i] for i in range(len(x)) ]
+    z=[1 if x[i]=="A" else x[i] for i in range(len(x))]
     
-    a=[11 if x[i]=="A" else x[i] for i in range(len(x)) ] 
-    
-          
+    a=[11 if x[i]=="A" else x[i] for i in range(len(x))]       
     h=[1 if y[i]=="A" else y[i] for i in range(len(y))]
-    
-    b=[11 if y[i]=="A" else y[i] for i in range(len(y)) ]
+    b=[11 if y[i]=="A" else y[i] for i in range(len(y))]
     
     if "A" in x:
        for i in range(len(x)):
@@ -72,7 +57,6 @@ def Calculate(x,y):
        for i in range(len (x)):
            e=e+a[i]
        print(e)
-          
        
     else:
        for i in range(len(x)):
@@ -93,13 +77,8 @@ def Calculate(x,y):
        print(c)
        
     return d,e,c,f
-    
-  
-     
-        
+          
 def check(d,c):
-    
-    print(d,c)
     if d<21 and c<21:
         if 21-d<21-c:
             print("Congrats! You have bet the dealer")
@@ -132,8 +111,7 @@ def BlackJack(x):
           a=a+x[i]
       if a==21:
           return 2
-      
-    
+          
 def Ace_Calculator(d,e,c,f):
     while True:
         if e<=21 and e>0:
@@ -147,9 +125,7 @@ def Ace_Calculator(d,e,c,f):
         else:
             l=c
             break
-       
-      
-    return t,l    
+        return t,l    
            
 def seventeen_check(x):
     a=0
@@ -185,17 +161,14 @@ def seventeen_check(x):
         else:
                return 0               
         
-
 print("Welcome to the BlackJack Casino \U0001f60a \U0001f60a \U0001f60a")
 print("\nAdvantage of playing at BlackJack Casino is you will never get busted if you split!")
-
 while True:
     balance=int(input("Set balance:"))
     if balance>0:
         break
     else:
         print("Balance should be greater than zero")
-
 
 while True:
     s=0
@@ -216,14 +189,11 @@ while True:
     Record.__betplaced__()
     print(Record)
 
-
-
     print("\n****** Dealer distributes the cards ******* \n")
     x,y=randomgenerator()
     playercard=Player_hand(x)
     dealercard=Dealers_hand(y)
     print("\n",playercard,"\n",dealercard)
-    
     
     if y[0]==10 or y[0]=="A":
         n=BlackJack(dealercard.dealers_card)
@@ -304,7 +274,6 @@ while True:
                             if p.lower()=="n":
                                print("First Hand:",playercard,"Second Hand:",playercard1)
                                break
-                        
                         
                         split=[10 if playercard.player_card[i] in ["K","Q","J"] else 11 if playercard.player_card[i]=="A" else playercard.player_card[i] for i in range(len(playercard.player_card))]
                         split2=[10 if playercard1.player_card[i] in ["K","Q","J"] else 11 if playercard1.player_card[i]=="A" else playercard1.player_card[i] for i in range(len(playercard1.player_card))]
