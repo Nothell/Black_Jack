@@ -162,7 +162,7 @@ def seventeen_check(x):
                return 0               
         
 print("Welcome to the BlackJack Casino \U0001f60a \U0001f60a \U0001f60a")
-print("\nAdvantage of playing at BlackJack Casino is you will never get busted if you split!")
+print("\nAdvantage of playing at BlackJack Casino is that you will never get busted if you split!")
 while True:
     balance=int(input("Set balance:"))
     if balance>0:
